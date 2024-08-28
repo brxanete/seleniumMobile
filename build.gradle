@@ -1,0 +1,67 @@
+//defaultTasks 'clean', 'test', 'aggregate'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+
+        }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.5.0"
+        classpath "org.gradle:test-retry-gradle-plugin:1.4.1"
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
+apply plugin: "org.gradle.test-retry"
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+dependencies {
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-junit5', version: '3.3.6'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-ensure', version: '3.3.6'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '4.1.4'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '2.2.2'
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-webdriver', version: '3.3.6'
+    implementation 'org.apiguardian:apiguardian-api:1.1.0'
+
+
+    testImplementation 'io.appium:java-client:8.5.0'
+}
+
+test {
+    retry {
+        maxRetries = 4
+        maxFailures = 10
+    }
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
+
+serenity {
+    testRoot = "src/test/java/appmobile/runners"
+    requirementsDir = "src/test/resources/features"
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

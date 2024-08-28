@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="HU1247_Inicio de sesion por primera vez" skipped="0" tests="1" time="1.31" timestamp="2024-05-30 04:05:13"><testcase name="Validacion elementos home page"><error message="WebDriver was unable to create a new instance of type class io.appium.java_client.AppiumDriver&#13;&#10;WebDriver reported the following message: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. &#10;Host info: host: 'NTTD-680KGK3', ip: '192.168.1.7'&#13;&#10;See below for more details." type="net.thucydides.core.webdriver.DriverConfigurationError">WebDriver was unable to create a new instance of type class io.appium.java_client.AppiumDriver&#13;
+WebDriver reported the following message: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+Host info: host: 'NTTD-680KGK3', ip: '192.168.1.7'&#13;
+See below for more details.</error><system-err>WebDriver was unable to create a new instance of type class io.appium.java_client.AppiumDriver&#13;
+WebDriver reported the following message: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+Host info: host: 'NTTD-680KGK3', ip: '192.168.1.7'&#13;
+See below for more details.&#13;
+appmobile.stepdefinitions.HomeValidateStepDefinitions.userIsOnHomePage(HomeValidateStepDefinitions.java:42)&#13;
+</system-err></testcase></testsuite>
