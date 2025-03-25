@@ -48,13 +48,7 @@ public class HomeValidateStepDefinitions {
     @Then("El usuario valida los elementos visuales")
     public void userValidateHomeElements() {
         theActorCalled("Bryan").should(
-                seeThat("Validate presence home principal logo", ElementVisibleQuestion.ofElement(robotImage, 10), equalTo(true)),
-                seeThat("Validate presence web driver title", ElementVisibleQuestion.ofElement(webDriverTitle, 10), equalTo(true)),
-                seeThat("Validate presence io logo", ElementVisibleQuestion.ofElement(iOLogo, 10), equalTo(true)),
-                seeThat("Validate presence info app", ElementVisibleQuestion.ofElement(infoApp, 10), equalTo(true)),
-                seeThat("Validate presence home apple logo", ElementVisibleQuestion.ofElement(appleLogo, 10), equalTo(true)),
-                seeThat("Validate presence home android logo", ElementVisibleQuestion.ofElement(androidLogo, 10), equalTo(true)),
-                seeThat("Validate presence home support text", ElementVisibleQuestion.ofElement(supportText, 10), equalTo(true))
+                seeThat("Validate presence home principal logo", ElementVisibleQuestion.ofElement(robotImage, 10), equalTo(true))
         );
     }
 

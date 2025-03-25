@@ -46,7 +46,7 @@ dependencies {
 
 test {
     retry {
-        maxRetries = 4
+        maxRetries = 0
         maxFailures = 10
     }
     testLogging.showStandardStreams = true
